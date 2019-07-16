@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+
+  db:
+    image: mysql:5.6
+    container_name: thesaurus-db-container
+    ports:
+      - '3308:3306'
+    environment:
+      MYSQL_DATABASE: thesaurusdb
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: u&yT^hR#3dE
+      MYSQL_ROOT_PASSWORD: uiser^$tTweYY
+    restart: always
+
+  app:
+    build: .
+    container_name: thesaurus-api-app-container
+    command: bash -c "
+        mvn clean install -DskipTests
+      "
+    environment:
+      SPRING_DATASOURCE_URL: 'jdbc:mysql://thesaurus-db-container:3306/thesaurusdb'
+    ports:
+      - '8686:8686'
+    depends_on:
+      - db
+    restart: always
