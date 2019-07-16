@@ -1,0 +1,9 @@
+package com.assign.thesaurus.interfaces;
+
+import java.io.Serializable;
+
+public interface IWithName extends Serializable {
+
+    String getName();
+
+}
