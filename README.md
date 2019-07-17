@@ -6,13 +6,11 @@
 
 ## Build process
 - clone the repo
-- make sure Docker is running on your machine
-- go to the root directory of the project and run the following 
-command:
+- make sure Docker is running on your machine running the following command:
 ```bash
-mvn clean install -DskipTests
+docker --version
 ```
-- and then:
+- go to the root directory of the project and run the following 
 ```bash
 docker-compose up --build
 ```
