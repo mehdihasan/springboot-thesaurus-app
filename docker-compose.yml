@@ -17,9 +17,6 @@ services:
   app:
     build: .
     container_name: thesaurus-api-app-container
-    command: bash -c "
-        mvn clean install -DskipTests
-      "
     environment:
       SPRING_DATASOURCE_URL: 'jdbc:mysql://thesaurus-db-container:3306/thesaurusdb'
     ports:
