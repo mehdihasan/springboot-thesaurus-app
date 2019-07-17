@@ -17,11 +17,13 @@ docker-compose up --build
 
 ## Play
 
-- View all words
+- View all words:
+you can go to your browser and surf [this](http://localhost:8686/words) url or run the following command:
 ```bash
 curl http://localhost:8686/words | python -m json.tool
 ```
 - View synonyms against any word
+you can go to your browser and surf [this](http://localhost:8686/words/amber) url or run the following command:
 ```bash
 curl http://localhost:8686/words/amber | python -m json.tool
 ```
@@ -29,6 +31,7 @@ curl http://localhost:8686/words/amber | python -m json.tool
 ```bash
 curl -i -X POST -H "Content-Type:application/json" http://localhost:8686/words -d '["logic", "description", "philosophy", "rationale", "sanity", "sense", "argumentation", "coherence"]'
 ```
+Or you can use postman.
 
 ## Uninstall the project
 
