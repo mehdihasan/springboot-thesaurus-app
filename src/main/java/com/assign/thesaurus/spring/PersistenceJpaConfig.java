@@ -20,7 +20,7 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @ComponentScan({ "com.assign.thesaurus.persistence" })
-@PropertySource({ "classpath:persistence-${persistenceTarget:local}.properties" })
+@PropertySource({ "classpath:persistence-${persistenceTarget:h2}.properties" })
 @EnableJpaRepositories(basePackages = "com.assign.thesaurus.persistence.dao")
 public class PersistenceJpaConfig {
 
