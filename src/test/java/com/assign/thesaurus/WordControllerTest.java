@@ -19,11 +19,10 @@ import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = { ThesaurusApplication.class }, webEnvironment
-        = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@SpringBootTest(classes = { ThesaurusApplication.class }, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class WordControllerTest {
 
-    private static final String API_ROOT = "http://localhost:8383/words";
+    private static final String API_ROOT = "http://localhost:8686/words";
 
     @Test
     public void whenGetAll_thenOK() {
@@ -40,8 +39,8 @@ public class WordControllerTest {
 
         final Response response = RestAssured.get(location);
         assertEquals(HttpStatus.OK.value(), response.getStatusCode());
-        assertEquals(Arrays.asList(word.getSynonyms().split(",")).size()
-                , Arrays.asList(response.body().print().split(",")).size());
+        assertEquals(Arrays.asList(word.getSynonyms().split(",")).size(),
+                Arrays.asList(response.body().print().split(",")).size());
     }
 
     @Test
@@ -59,9 +58,7 @@ public class WordControllerTest {
         synonymList.add(word.getName());
         synonymList.addAll(Arrays.asList(synonyms));
 
-        final Response response = RestAssured.given()
-                .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .body(synonymList)
+        final Response response = RestAssured.given().contentType(MediaType.APPLICATION_JSON_VALUE).body(synonymList)
                 .post(API_ROOT);
 
         assertEquals(HttpStatus.CREATED.value(), response.getStatusCode());
@@ -87,9 +84,7 @@ public class WordControllerTest {
         synonymList.add(word.getName());
         synonymList.addAll(Arrays.asList(synonyms));
 
-        final Response response = RestAssured.given()
-                .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .body(synonymList)
+        final Response response = RestAssured.given().contentType(MediaType.APPLICATION_JSON_VALUE).body(synonymList)
                 .post(API_ROOT);
 
         return API_ROOT + "/" + word.getName();
