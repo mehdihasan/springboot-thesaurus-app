@@ -10,9 +10,14 @@
 ```bash
 docker --version
 ```
-- go to the root directory of the project and run the following 
+- go to the root directory of the project and run the following command to build the image 
 ```bash
-docker-compose up --build
+docker image build -t thesaurus .
+```
+
+- then run the following command to make your container and run the app into port 8686
+```bash
+docker run -d --name thesaurusApp -p 8686:8686 thesaurus
 ```
 
 ## Play
