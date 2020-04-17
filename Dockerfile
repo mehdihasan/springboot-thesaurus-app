@@ -11,6 +11,6 @@ RUN mvn clean package -DskipTests
 
 # FROM openjdk:8
 #COPY --from=build /usr/src/app/target/thesaurus-api-app.jar /usr/app/thesaurus-api-app.jar
-COPY --from=build /usr/src/app/target/thesaurus-api-app.jar /build/thesaurus-api-app.jar
+COPY target/thesaurus-api-app.jar /build/thesaurus-api-app.jar
 EXPOSE 8686
 ENTRYPOINT ["java","-jar","/build/thesaurus-api-app.jar"]
