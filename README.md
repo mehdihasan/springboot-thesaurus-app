@@ -17,7 +17,7 @@ docker image build -t thesaurus .
 
 - then run the following command to make your container and run the app into port 8686
 ```bash
-docker run -d --name thesaurusApp -p 8686:8686 thesaurus
+docker run --rm -d --name thesaurusApp -p 8686:8686 thesaurus
 ```
 
 ## Play
@@ -42,8 +42,5 @@ Or you can use postman.
 
 To uninstall the project, please run the following command:
 ```bash
-docker stop thesaurus-api-app-container &&
-docker stop thesaurus-db-container &&
-docker rm thesaurus-db-container &&
-docker rm thesaurus-api-app-container
+docker stop thesaurusApp
 ```
